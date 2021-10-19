@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageuploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('addImg',[ImageuploadController::class, 'image_upload'])->name('image.upload');
+Route::post('addImg',[ImageuploadController::class, 'upload_post_image'])->name('upload.post.image');
 
 require __DIR__.'/auth.php';
