@@ -7,7 +7,7 @@
 
                 <!-- Navigation Links -->
 
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light">
                     <div class="container-fluid flex ">
                         <a class="navbar-brand" href="#"><img class="w-20" src="{{asset('img/pin.png')}}"
                                                               alt="test"></a>
@@ -31,7 +31,7 @@
                                     </button>
                                 </form>
                                 @auth()
-                                    <li class="nav-item flex mr-5 ml-5">
+                                    <li class="nav-item mt-2 flex mr-5 ml-5">
                                         <a class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center nav-link"
                                            href="/addImg">Ajouter une images</a>
                                     </li>
@@ -43,20 +43,22 @@
                                     </li>
                                 @endguest
                             </ul>
+                            @auth()
+                                <div class="d-flex items-center">
+                                    <form class="form-inline" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit">
+                                            {{ __('Logout') }}
+                                        </button>
+                                    </form>
+                                </div>
+                            @endauth
                         </div>
+
                     </div>
                 </nav>
             </div>
-            @auth()
-            <div class="d-flex items-center">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit">
-                        {{ __('Logout') }}
-                    </button>
-                </form>
-            </div>
-            @endauth
+
         </div>
 
         <!-- Responsive Navigation Menu -->

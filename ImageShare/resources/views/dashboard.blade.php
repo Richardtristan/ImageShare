@@ -11,13 +11,13 @@
             @foreach($images as $img)
                 @php $randomId = rand(100,300) @endphp
                 <div class="container">
-                    <img style="height: 100%; max-height: {{$randomId}}px; width:100%; max-width: 300px;object-fit: contain;"
+                    <img style="height: 100%; max-height: {{$randomId}}px; width:100%; max-width: 300px;"
                          class="img  rounded bg-gray-100 " src="{{asset("images/" . $img->nameImg)}}"
                          alt="test">
-                    <form class="btn" method="post">
+                    <form method="post" action="{{route('details.post.image')}}">
                         @csrf
                         <input name="id" value="{{$img->id}}" type="hidden">
-                        <button name="submit" type="submit"></button>
+                        <button class="btni" name="submit" type="submit">Infos</button>
                     </form>
                 </div>
             @endforeach

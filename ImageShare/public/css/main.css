@@ -11,7 +11,7 @@
 }
 
 /* Style the button and place it in the middle of the container/image */
-.container .btn {
+.container .btni {
     position: absolute;
     top: 20%;
     left: 25%;
@@ -27,7 +27,7 @@
     opacity: 0.5;
 }
 
-.container .btn:hover {
+.container .btni:hover {
     background-color: #4c4c4c;
     opacity: 0.5;
 }

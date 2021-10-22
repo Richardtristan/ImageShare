@@ -6,21 +6,24 @@
     </x-slot>
 
     <div class="container py-12">
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 ">
 
-            @foreach($details as $data)
+        @foreach($details as $data)
 
-                <img
-                    style="height: 100%; max-height: {{$randomId}}px; width:100%; max-width: 300px;object-fit: contain;"
-                    class="img  rounded bg-gray-100 " src="{{asset("images/" . $img->nameImg)}}"
-                    alt="test">
-                <form method="post" action="{{route('details.post.image')}}">
-                    @csrf
-                    <input name="id" value="{{$img->id}}" type="hidden">
-                    <button name="submit" type="submit">Infos</button>
-                </form>
-            @endforeach
+            <div class="text-center grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2">
+                <div>
+                    <img style="margin: 0;align-items: center" class="text-center img max-w-lg rounded bg-gray-100 " src="{{asset("images/" . $data->nameImg)}}"
+                         alt="test">
+                </div>
+                <div class="mt-5">
+                    <h2 class="text-center mb-5">{{$data->title}}</h2>
+                    <p class="text-center text-lg mt-5"> Description : </p>
+                    <p class=" text-center">{{$data->desc}}</p>
+                </div>
+            </div>
 
-        </div>
+
+        @endforeach
+
     </div>
+
 </x-app-layout>
