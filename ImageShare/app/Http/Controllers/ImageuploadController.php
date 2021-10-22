@@ -27,6 +27,9 @@ class ImageuploadController extends Controller
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required|min:1|max:20',
+            'desc' => 'required|min:5|max:200'
+
         ]);
 
         $imageName = time().'.'.$request->image->extension();
@@ -34,11 +37,12 @@ class ImageuploadController extends Controller
         $request->image->move(public_path('images'), $imageName);
         DB::table('photos')
             ->insert(
-                ['nameUser' => Auth::user()->name, 'nameImg' => $imageName]
+                ['nameUser' => Auth::user()->name, 'nameImg' => $imageName, 'title' => $request->title, 'desc' => $request->desc]
             );
 
         return back()->with('success','You have successfully upload image.');
 
     }
 }
+
 ?>

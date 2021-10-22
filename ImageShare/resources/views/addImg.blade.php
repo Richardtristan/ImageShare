@@ -45,11 +45,19 @@
                 <form action="{{ route('upload.post.image') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
-                            <input type="file" name="image" class="form-control">
+                        <div class="col-md-12 text-center mb-2 mt-2">
+                            <input id="img" type="file" name="image" class="form-control">
                         </div>
+                        <div class="col-md-12 text-center mb-2">
+                            <label class="mb-1" for="title">le titre</label>
+                                <input id="title" inlist="title" type="text" name="title" class="form-control">
 
-                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-12 text-center mb-2">
+                            <label class="mb-1" for="desc">la description</label>
+                                <input id="desc" type="text" name="desc" class="form-control">
+                        </div>
+                        <div class="col-md-12 text-center mb-2">
                             <button type="submit" class="btn btn-success">Upload</button>
                         </div>
                     </div>

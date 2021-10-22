@@ -17,6 +17,8 @@ class Photo extends Model
             $table->integer('nameUser');
             $table->string('nameImg');
             $table->dateTime('date')->default(new DateTime('now'));
+            $table->text('title');
+            $table->text('desc');
         });
     }
 
@@ -24,4 +26,5 @@ class Photo extends Model
     {
         Schema::drop('photos');
     }
+
 }

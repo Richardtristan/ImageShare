@@ -20,6 +20,8 @@ class CreatePhotosTable extends Migration
             $table->string('nameUser');
             $table->string('nameImg');
             $table->timestamp('date')->useCurrent();
+            $table->text('title');
+            $table->text('desc');
         });
     }
 
