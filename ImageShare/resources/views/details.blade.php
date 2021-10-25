@@ -18,6 +18,10 @@
                     <h2 class="text-center mb-5">{{$data->title}}</h2>
                     <p class="text-center text-lg mt-5"> Description : </p>
                     <p class=" text-center">{{$data->desc}}</p>
+                    <p class="text-center text-lg mt-5"> Auteur : </p>
+                    <p class=" text-center">{{$data->nameUser}}</p>
+                    <p class="text-center text-lg mt-5"> date du post : </p>
+                    <p class=" text-center">{{$data->date}}</p>
                 </div>
             </div>
 
